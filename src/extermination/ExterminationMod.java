@@ -773,20 +773,20 @@ public class ExterminationMod extends Plugin {
 		rules.unitDamageMultiplier = resetUnitDamage;
 		rules.blockDamageMultiplier = resetBlockDamage;
 
-		String[] cmd = new String[] { "/bin/bash", "-c", "python3 " + System.getProperty("user.home")
-				+ "/GameRecords_v7/updateDatabase.py " + System.getProperty("user.home")
-				+ "/GameRecords_v7/database.csv" + System.getProperty("user.home")
-				+ "/GameRecords_v7/update.csv " + System.getProperty("user.home") + "GameRecords_v7/serverInput.data" };
+		String[] cmd = new String[] { "/bin/bash", "-c",
+				"python3 " + EvictConfig.serpuloDataFile("updateDatabase.py") + " "
+						+ EvictConfig.serpuloDataFile("database.csv") + " "
+						+ EvictConfig.serpuloDataFile("update.csv") + " " +
+						EvictConfig.serpuloDataFile("serverInput.data") };
 
 		Log.info(rules.env + " & " + Planets.erekir.defaultEnv);
 		if (rules.env == Planets.erekir.defaultEnv) {
 			Log.info("load erekir!");
 			cmd = new String[] { "/bin/bash", "-c",
-					"python3 " + System.getProperty("user.home")
-							+ "/GameRecords_erekir/updateDatabase.py " + System.getProperty("user.home")
-							+ "/GameRecords_erekir/database.csv  "
-							+ System.getProperty("user.home")
-							+ "/GameRecords_erekir/update.csv  /root/GameRecords_erekir/serverInput.data" };
+					"python3 " + EvictConfig.dataFile("updateDatabase.py") + " "
+							+ EvictConfig.erekirDataFile("database.csv") + " "
+							+ EvictConfig.erekirDataFile("update.csv") + " " +
+							EvictConfig.erekirDataFile("serverInput.data") };
 		}
 
 		try {

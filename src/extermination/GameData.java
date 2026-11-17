@@ -909,9 +909,9 @@ public class GameData {
 			debugTeamDataDump();
 			FileWriter fw;
 			if (state.rules.env == Planets.serpulo.defaultEnv) {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_v7/update.csv", false);
+				fw = new FileWriter(EvictConfig.serpuloDataFile("update.csv"), false);
 			} else {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_erekir/update.csv", false);
+				fw = new FileWriter(EvictConfig.erekirDataFile("update.csv"), false);
 			}
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (Player p : Groups.player) {
@@ -945,9 +945,9 @@ public class GameData {
 			debugTeamDataDump();
 			FileWriter fw;
 			if (state.rules.env == Planets.serpulo.defaultEnv) {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_v7/update.csv", false);
+				fw = new FileWriter(EvictConfig.serpuloDataFile("update.csv"), false);
 			} else {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_erekir/update.csv", false);
+				fw = new FileWriter(EvictConfig.erekirDataFile("update.csv"), false);
 			}
 			BufferedWriter bw = new BufferedWriter(fw);
 
@@ -1095,9 +1095,9 @@ public class GameData {
 			debugTeamDataDump();
 			FileWriter fw;
 			if (state.rules.env == Planets.serpulo.defaultEnv) {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_v7/results.csv", true);
+				fw = new FileWriter(EvictConfig.serpuloDataFile("results.csv"), true);
 			} else {
-				fw = new FileWriter(System.getProperty("user.home") + "/GameRecords_erekir/results.csv", true);
+				fw = new FileWriter(EvictConfig.erekirDataFile("results.csv"), true);
 			}
 			BufferedWriter bw = new BufferedWriter(fw);
 			for (PlayerTeam pt : teamData) {
