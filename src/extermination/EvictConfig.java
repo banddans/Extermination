@@ -59,15 +59,15 @@ public class EvictConfig {
   private static String serpuloDataLocation = dataLocation + "/serpulo";
 
   public static String dataFile(String file) {
-    return dataLocation + file;
+    return dataLocation + "/" + file;
   }
 
   public static String serpuloDataFile(String file) {
-    return serpuloDataLocation + file;
+    return serpuloDataLocation + "/" + file;
   }
 
   public static String erekirDataFile(String file) {
-    return erekirDataLocation + file;
+    return erekirDataLocation + "/" + file;
   }
 
   // map detail validation helpers
