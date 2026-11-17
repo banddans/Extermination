@@ -353,8 +353,6 @@ public class EvictionMod extends Plugin{
 
 			rules.onlyDepositCore = true;
 			rules.env = Planets.serpulo.defaultEnv;
-			rules.hiddenBuildItems.clear();
-       	         	rules.hiddenBuildItems.addAll(Planets.serpulo.hiddenItems);
 			rules.buildSpeedMultiplier = 1.4f;
 			resetUnitDamage = 0.5f;
 			resetBlockDamage = 0.5f;
