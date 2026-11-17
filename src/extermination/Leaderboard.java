@@ -26,11 +26,11 @@ public class Leaderboard {
 			if (state.rules.env == Planets.serpulo.defaultEnv) {
 				Log.info("loading serpulo");
 				br = new BufferedReader(
-						new FileReader(System.getProperty("user.home") + "/GameRecords_v7/serverInput.data"));
+						new FileReader(EvictConfig.serpuloDataFile("serverInput.data")));
 			} else {
 				Log.info("loading erekir");
 				br = new BufferedReader(
-						new FileReader(System.getProperty("user.home") + "/GameRecords_erekir/serverInput.data"));
+						new FileReader(EvictConfig.erekirDataFile("serverInput.data")));
 			}
 			String line;
 			int counter = 0;
