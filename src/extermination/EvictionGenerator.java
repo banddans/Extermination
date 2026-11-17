@@ -1,4 +1,4 @@
-package eviction;
+package extermination;
 
 import arc.func.*;
 import arc.math.*;
@@ -15,7 +15,7 @@ import mindustry.game.*;
 
 import static mindustry.Vars.*;
 
-import eviction.GameData.*;
+import extermination.GameData.*;
 
 public class EvictionGenerator implements Cons<Tiles>{
 

@@ -1,4 +1,4 @@
-package eviction;
+package extermination;
 
 import arc.struct.*;
 import arc.util.*;

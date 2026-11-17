@@ -1,4 +1,4 @@
-package eviction;
+package extermination;
 
 import arc.*;
 import arc.math.geom.*;

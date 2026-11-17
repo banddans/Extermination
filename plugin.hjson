@@ -1,5 +1,5 @@
-name: "Eviction",
-author: "Larofeticus",
+name: "Extermination",
+author: "Modified from larofeticus by banddans",
 description: "FFA Hex PvP. Capture by having the most units in a hex when its core is destroyed. No logic. Eliminated players get a second chance on the Fallen team. https://discord.gg/8tnSGvwz",
 version: 0.2
 minGameVersion: 146

@@ -1,4 +1,4 @@
-package eviction;
+package extermination;
 
 import static mindustry.Vars.*;
 import mindustry.content.*;

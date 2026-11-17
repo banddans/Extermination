@@ -1,4 +1,4 @@
-package eviction;
+package extermination;
 
 import arc.*;
 import arc.math.*;
@@ -30,7 +30,7 @@ import arc.math.geom.*;
 import static arc.util.Log.*;
 import static mindustry.Vars.*;
 
-import eviction.GameData.*;
+import extermination.GameData.*;
 import java.io.*;
 
 import java.util.regex.Matcher;
