@@ -158,10 +158,7 @@ public class EvictionGenerator implements Cons<Tiles>{
 
                 for(int x = -1 * ec.parcelRadius + 2; x <= 0; x++) {
                         for (int y = ystart; y < ystart + yheight; y++) {
-                                Log.info("map: (" + mapx +  ", " + mapy + ")");
-                                Log.info("off: ("+  x + ", " +  y +  ")");
 				int slanty = y + (int) Math.round((x + ec.parcelRadius) / 1.7) - 3;
-                                Log.info("slanty: " + slanty);
                                 if(parcel.northwest == Parcel.doorway && x > (int) Math.round(-1 * ec.parcelRadius / 2.0) - 3 && x < (int) Math.round(-1 * ec.parcelRadius / 2.0) + 4) { continue; }
                                 Tile tile = tiles.get(mapx + x, mapy + slanty);
                                 Block wall = Blocks.dirtWall;
@@ -187,10 +184,7 @@ public class EvictionGenerator implements Cons<Tiles>{
 
                 for(int x = ec.parcelRadius - 2; x >= 0; x--) {
                         for (int y = ystart; y < ystart + yheight; y++) {
-                                Log.info("map: (" + mapx +  ", " + mapy + ")");
-                                Log.info("off: ("+  x + ", " +  y +  ")");
                                 int slanty = y + (int) Math.round((ec.parcelRadius - x) / 1.7) - 3;
-                                Log.info("slanty: " + slanty);
                                 if(parcel.northeast == Parcel.doorway && x < (int) Math.round(ec.parcelRadius / 2.0) + 3 && x > (int) Math.round(ec.parcelRadius / 2.0) - 4) { continue; }
                                 Tile tile = tiles.get(mapx + x, mapy + slanty);
                                 Block wall = Blocks.dirtWall;
