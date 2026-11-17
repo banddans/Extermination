@@ -385,9 +385,8 @@ public class EvictionMod extends Plugin{
                         //init erekir only content
                         Config.all.find(conf -> conf.name.equalsIgnoreCase("name")).set("Eviction: Erekir");
 
-                        rules.env = Planets.erekir.defaultEnv;
-                        rules.hiddenBuildItems.clear();
-                        rules.hiddenBuildItems.addAll(Planets.erekir.hiddenItems);
+			rules.planet = Planets.erekir;
+			rules.env = Planets.erekir.defaultEnv;
 			resetUnitDamage = 1f;
 			resetBlockDamage = 1f;
 			rules.unitDamageMultiplier = resetUnitDamage;
