@@ -2,3 +2,4 @@ build/
 .gradle/
 config/
 *.swp
+bin
