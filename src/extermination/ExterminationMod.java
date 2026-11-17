@@ -70,7 +70,7 @@ public class ExterminationMod extends Plugin{
 		rules.onlyDepositCore = true;
 		rules.fog = false;
 		rules.pvp = false;
-		rules.tags.put("eviction", "true");
+		rules.tags.put("extermination", "true");
 		rules.waves = false;
 		rules.attackMode = false;
 		rules.canGameOver = false;
@@ -91,7 +91,7 @@ public class ExterminationMod extends Plugin{
         ec = new EvictConfig();
 
 		Events.on(PlayerJoin.class, event -> {
-			Call.infoMessage(event.player.con, "Welcome to Eviction.\n/gameplay for how to play.\n\nJoin the community or report abuse at https://discord.gg/GdnsrmKKAM\n\n Under active development by Larofeticus.\n\n" + leaderboard.topCardString() + "\n\nUse /attack and /rally to send an order to all units. /fullassault sends an attack command every 5 seconds. Units further than 1 hex away from a friendly core suffer attrition. At 90 minutes full assault is locked on for all teams and all cores start spawning air units.\n\nThe people voted for crystalline stone floors![white]");
+			Call.infoMessage(event.player.con, "Welcome to Extermination. A fork by banddans of eviction by larofeticus. \n/gameplay for how to play.\n\n" + leaderboard.topCardString() + "\n\nUse /attack and /rally to send an order to all units. /fullassault sends an attack command every 5 seconds. Units further than 1 hex away from a friendly core suffer attrition. At 90 minutes full assault is locked on for all teams and all cores start spawning air units.[white]");
 			if(!data.hasNucleus(event.player)) {
 				//need a nucleus
 				if(!data.spawnNucleus(event.player.uuid())) {
@@ -238,7 +238,7 @@ public class ExterminationMod extends Plugin{
 
 	}
 
-	private void startEviction() {
+	private void startExtermination() {
 		data = new GameData(ec);
 		data.initFallen();
 		data.initParcels();
@@ -334,14 +334,14 @@ public class ExterminationMod extends Plugin{
 
 	@Override
 	public void registerServerCommands(CommandHandler handler){
-		handler.register("eviction_s", "Begin hosting with the Eviction: Serpulo gamemode.", args -> {
+		handler.register("extermination_s", "Begin hosting with the Extermination: Serpulo gamemode.", args -> {
 			if(!state.is(State.menu)){
 				Log.err("Stop server first.");
 				return;
 			}
 
 			//init serpulo only content
-			Config.all.find(conf -> conf.name.equalsIgnoreCase("name")).set("Eviction: Serpulo");
+			Config.all.find(conf -> conf.name.equalsIgnoreCase("name")).set("Extermination: Serpulo");
 
 			rules.onlyDepositCore = true;
 			rules.env = Planets.serpulo.defaultEnv;
@@ -364,18 +364,18 @@ public class ExterminationMod extends Plugin{
 
 	 		rules.loadout = ItemStack.list(Items.copper, 900, Items.lead, 900, Items.silicon, 300, Items.scrap, 1000, Items.graphite, 200, Items.metaglass, 100, Items.titanium, 50);
 
-			startEviction();
+			startExtermination();
 			netServer.openServer();
 		});
 
-		handler.register("eviction_e", "Begin hosting with the Eviction: Erekir gamemode.", args -> {
+		handler.register("extermination_e", "Begin hosting with the Extermination: Erekir gamemode.", args -> {
                         if(!state.is(State.menu)){
                                 Log.err("Stop server first.");
                                 return;
                         }
 
                         //init erekir only content
-                        Config.all.find(conf -> conf.name.equalsIgnoreCase("name")).set("Eviction: Erekir");
+                        Config.all.find(conf -> conf.name.equalsIgnoreCase("name")).set("Extermination: Erekir");
 
 			rules.planet = Planets.erekir;
 			rules.env = Planets.erekir.defaultEnv;
@@ -389,7 +389,7 @@ public class ExterminationMod extends Plugin{
 
                         rules.loadout = ItemStack.list(Items.beryllium, 1100, Items.graphite, 410, Items.silicon, 410, Items.tungsten, 200);
 
-                        startEviction();
+                        startExtermination();
                         netServer.openServer();
                 });
 
@@ -552,8 +552,8 @@ public class ExterminationMod extends Plugin{
 			player.sendMessage("https://discord.gg/GdnsrmKKAM");
 		});
 
-		handler.<Player>register("gameplay", "Read how Eviction gameplay works.", (args, player) -> {
-			String message = "How to play Eviction:\nCapture all cores from players and the Fallen team to win.  Destroy a core to capture it.  Core explosions kill all nearby buildings, some nearby units, and will spawn fallen cores in adjacent vacant cells.  Units too far away from any core suffer attrition. A player that loses all cores will be moved to the Fallen team.  If you eliminate a player you can use the /invite command to bring them onto your team. If you spawn as Fallen you can use /invite to ask to join another team. At 90 minutes players recieve free units at each core and are forced to attack until the game ends.";
+		handler.<Player>register("gameplay", "Read how Extermination gameplay works.", (args, player) -> {
+			String message = "How to play Extermination:\nCapture all cores from players and the Fallen team to win.  Destroy a core to capture it.  Core explosions kill all nearby buildings, some nearby units, and will spawn fallen cores in adjacent vacant cells.  Units too far away from any core suffer attrition. A player that loses all cores will be moved to the Fallen team.  If you eliminate a player you can use the /invite command to bring them onto your team. If you spawn as Fallen you can use /invite to ask to join another team. At 90 minutes players recieve free units at each core and are forced to attack until the game ends.";
 			player.sendMessage(message);
 		});
 
@@ -685,7 +685,7 @@ public class ExterminationMod extends Plugin{
 			WorldReloader reloader = new WorldReloader();
 			state.set(State.menu);
 			reloader.begin();
-			startEviction();
+			startExtermination();
 			reloader.end();
 			
 			for(Player p : players) { 
