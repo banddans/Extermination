@@ -604,9 +604,9 @@ public class GameData {
 	}
 
 	public void initParcels() {
-	    for(int x = -ec.hexLayers + 1; x < ec.hexLayers; x++) {
-            for(int y = -ec.hexLayers + 1; y < ec.hexLayers; y++) { 
-                for(int z = -ec.hexLayers + 1; z < ec.hexLayers; z++) { 
+	    for(int x = 0; x < ec.hexLayers * 2 + 2; x++) {
+            for(int y = 0; y < ec.hexLayers * 2 + 2; y++) { 
+				for (int z = 0; z < ec.hexLayers * 2 + 2; z++) {
                     Parcel parcel = new Parcel(x, y, z, ec);
 				    parcel.status = Parcel.vacant;
                     parcels.add(parcel);
@@ -616,18 +616,27 @@ public class GameData {
         }
 
         
-		for(int x = -ec.hexLayers + 1; x < ec.hexLayers; x++) {
-			for(int y = -ec.hexLayers + 1; y < ec.hexLayers; y++) {
-			    for(int z = -ec.hexLayers + 1; z < ec.hexLayers; z++) {
+	    for(int x = 0; x < ec.hexLayers * 2 + 2; x++) {
+            for(int y = 0; y < ec.hexLayers * 2 + 2; y++) { 
+				for (int z = 0; z < ec.hexLayers * 2 + 2; z++) {
 				    Parcel parcel = parcelIndex[x][y][z];
 				    if(parcel == null || parcel.inactive()) continue;
 					
-				    Parcel east = parcelIndex[x-1][y][z];
-				    if(east != null && !east.inactive()) Parcel.pairAdjacent(parcel, east);	
-				    Parcel northeast = parcelIndex[x][y-1][z];
-				    if(northeast != null && !northeast.inactive()) Parcel.pairAdjacent(parcel, northeast);	
-				    Parcel northwest = parcelIndex[x][y][z-1];
-				    if(northwest != null && !northwest.inactive()) Parcel.pairAdjacent(parcel, northwest);	
+					if (x > 0) {
+						Parcel east = parcelIndex[x - 1][y][z];
+						if (east != null && !east.inactive())
+							Parcel.pairAdjacent(parcel, east);
+					}
+					if (y > 0) {
+						Parcel northeast = parcelIndex[x][y - 1][z];
+						if (northeast != null && !northeast.inactive())
+							Parcel.pairAdjacent(parcel, northeast);
+					}
+					if (z > 0) {
+						Parcel northwest = parcelIndex[x][y][z - 1];
+						if (northwest != null && !northwest.inactive())
+							Parcel.pairAdjacent(parcel, northwest);
+					}
 				}
 			}
 		}
