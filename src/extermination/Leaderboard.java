@@ -2,7 +2,6 @@ package extermination;
 
 import static mindustry.Vars.*;
 import mindustry.content.*;
-import arc.*;
 import arc.struct.*;
 import arc.util.*;
 import java.io.*;
@@ -24,7 +23,7 @@ public class Leaderboard {
 		try {
 			BufferedReader br;
 			Log.info("leaderboard load: " + state.rules.env + " & " + Planets.serpulo.defaultEnv);
-			if(state.rules.env == Planets.serpulo.defaultEnv) { Log.info("loading serpulo"); br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/GameRecords_v7/serverInput.data")); }
+			if(state.rules.env == Planets.serpulo.defaultEnv) { Log.info("loading serpulo"); br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/GameRecords_v7/serverInput.data"));}
 			else { Log.info("loading erekir"); br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/GameRecords_erekir/serverInput.data")); }
 			String line; 
 			int counter = 0;

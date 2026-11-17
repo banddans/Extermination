@@ -12,10 +12,7 @@ import mindustry.entities.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
 
-import mindustry.core.NetServer.*;
 import mindustry.game.Schematic.*;
-
-import java.util.*;
 
 import static mindustry.Vars.*;
 
@@ -76,19 +73,19 @@ public class Parcel{
 		f = f / total;
 		w = w / total;		
 
-		if(ec.rand.chance(o)) { west = opening; }
-		else if(ec.rand.chance(d / (1.0 - o))) { west = doorway; }	
-		else if(ec.rand.chance(f / (1.0 - o - d))) { west = fence; }	
+		if(EvictConfig.rand.chance(o)) { west = opening; }
+		else if(EvictConfig.rand.chance(d / (1.0 - o))) { west = doorway; }	
+		else if(EvictConfig.rand.chance(f / (1.0 - o - d))) { west = fence; }	
 		else { west = barrier; }	
 
-		if(ec.rand.chance(o)) { northwest = opening; }
-		else if(ec.rand.chance(d / (1.0 - o))) { northwest = doorway; }	
-		else if(ec.rand.chance(f / (1.0 - o - d))) { northwest = fence; }	
+		if(EvictConfig.rand.chance(o)) { northwest = opening; }
+		else if(EvictConfig.rand.chance(d / (1.0 - o))) { northwest = doorway; }	
+		else if(EvictConfig.rand.chance(f / (1.0 - o - d))) { northwest = fence; }	
 		else { northwest = barrier; }	
 
-		if(ec.rand.chance(o)) { northeast = opening; }
-		else if(ec.rand.chance(d / (1.0 - o))) { northeast = doorway; }	
-		else if(ec.rand.chance(f / (1.0 - o - d))) { northeast = fence; }	
+		if(EvictConfig.rand.chance(o)) { northeast = opening; }
+		else if(EvictConfig.rand.chance(d / (1.0 - o))) { northeast = doorway; }	
+		else if(EvictConfig.rand.chance(f / (1.0 - o - d))) { northeast = fence; }	
 		else { northeast = barrier; }	
 	}
 
@@ -139,7 +136,7 @@ public class Parcel{
 		removeUnits();	
 		removeBuildings();
 		
-		if(ec.planet == ec.serpulo) 
+		if(ec.planet == EvictConfig.serpulo) 
 		{
 			Stile coreTile = ec.fallenShard.tiles.find(s -> s.block instanceof CoreBlock);
         		if(coreTile == null) throw new IllegalArgumentException("Schematic has no core tile. Exiting.");
@@ -223,7 +220,7 @@ public class Parcel{
 			if((xs*xs)+(ys*ys) < ec.parcelRsquare * 64) {
 				int c = teamCount.get(unit.team, 0);
 				teamCount.put(unit.team, c+1); 	
-				if(ec.rand.chance(ec.unitSurvival(unit))) { Core.app.post(() -> Call.unitDestroy(unit.id)); }
+				if(EvictConfig.rand.chance(ec.unitSurvival(unit))) { Core.app.post(() -> Call.unitDestroy(unit.id)); }
 			}
         });
 

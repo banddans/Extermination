@@ -1,12 +1,8 @@
 package extermination;
 
-import arc.util.*;
 import mindustry.maps.filters.*;
 import mindustry.content.*;
-import mindustry.gen.*;
 import mindustry.world.*;
-
-import static mindustry.maps.filters.FilterOption.*;
 
 public class LiquidFilter extends GenerateFilter{
     	public float scl = 40, threshold = 0.5f, octaves = 3f, falloff = 0.5f, tilt = 0f;

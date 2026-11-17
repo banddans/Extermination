@@ -2,20 +2,13 @@ package extermination;
 
 import arc.func.*;
 import arc.math.*;
-import arc.math.geom.*;
 import arc.struct.*;
-import arc.util.*;
-import arc.util.noise.*;
 import mindustry.content.*;
 import mindustry.maps.*;
 import mindustry.maps.filters.*;
 import mindustry.maps.filters.GenerateFilter.*;
 import mindustry.world.*;
-import mindustry.game.*;
-
 import static mindustry.Vars.*;
-
-import extermination.GameData.*;
 
 public class EvictionGenerator implements Cons<Tiles>{
 

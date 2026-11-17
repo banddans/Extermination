@@ -1,8 +1,5 @@
 package extermination;
 
-import arc.*;
-import arc.math.geom.*;
-import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
 import mindustry.game.*;
@@ -13,10 +10,7 @@ import mindustry.world.*;
 import mindustry.content.*;
 import mindustry.type.*;
 import static mindustry.Vars.*;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.UUID;
-import java.util.Arrays;
 import java.io.*;
 
 public class GameData {
@@ -30,7 +24,6 @@ public class GameData {
 	public static final int parcel_height = 9;
  
 	private Seq<PlayerTeam> teamData = new Seq<>();
-	private static int teamAvailable = 8;
 
 	private static int gameTier = 0;
 	private Seq<String> peerUuid = new Seq<>();
@@ -147,7 +140,6 @@ public class GameData {
 		Log.info("initFallen");
         useTeams = new Seq<>(intArray);
         useTeams.shuffle();
-		teamAvailable = useTeams.remove(0);
 		PlayerTeam pt = new PlayerTeam();
 		pt.tier = 0;
         pt.uuid = "";
@@ -266,7 +258,7 @@ public class GameData {
 		if(!pt.fallen) { spawn.status = Parcel.capital;	}	
 		pt.nucleus = true;
  
-		if(ec.planet == ec.serpulo) {
+		if(ec.planet == EvictConfig.serpulo) {
 			Stile coreTile = ec.serpPlayerStart.tiles.find(s -> s.block instanceof CoreBlock);
             if(coreTile == null) throw new IllegalArgumentException("Schematic has no core tile. Exiting.");
             int ox = spawn.mapx() - coreTile.x, oy = spawn.mapy() - coreTile.y;
@@ -322,7 +314,7 @@ public class GameData {
         pt.nucleus = true;
 
 		Tile tile = world.tile(spawn.mapx(), spawn.mapy());
-		if(ec.planet == ec.serpulo) {
+		if(ec.planet == EvictConfig.serpulo) {
  			tile.setNet(Blocks.coreShard, pt.team, 0); }
 		else {  //erekir spawn
             tile.setNet(Blocks.coreBastion, pt.team, 0); }

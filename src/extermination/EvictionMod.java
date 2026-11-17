@@ -4,15 +4,11 @@ import arc.*;
 import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
-import arc.graphics.*;
-
 import mindustry.content.*;
 import mindustry.core.GameState.*;
-import mindustry.core.NetServer.*;
 import mindustry.game.EventType.*;
 import mindustry.game.*;
 import mindustry.game.Teams.*;
-import mindustry.game.Schematic.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.net.Packets.*;
@@ -20,9 +16,6 @@ import mindustry.net.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.storage.*;
-import mindustry.world.meta.*;
-import mindustry.entities.*;
-import mindustry.ctype.*;
 import mindustry.net.Administration.*;
 import mindustry.world.blocks.storage.CoreBlock.*;
 
@@ -164,7 +157,6 @@ public class EvictionMod extends Plugin{
 				Team loser = event.tile.team();
 
 				String conquer = "";
-				float points = 1f;
 				parcel.status = Parcel.fallen;
 
 	                        Team t = parcel.countTeamUnits(loser.id);
@@ -452,7 +444,7 @@ public class EvictionMod extends Plugin{
 		});
 
 		handler.register("time", "Display age of current game.", arg -> {
-			info(data.timeString(data.gameStart));
+			info(GameData.timeString(data.gameStart));
 		});
 
 		handler.register("testleaderboard", "Debug dump of leaderboard", arg -> {
@@ -566,8 +558,8 @@ public class EvictionMod extends Plugin{
 		});
 
 		handler.<Player>register("time", "How long ago did game start? How long ago did you join?", (args, player) -> {
-			String message = data.timeString(data.gameStart) + " since game start\n";
-			message = message + data.timeString(data.getPlayerJoin(player)) + " since you joined\n";
+			String message = GameData.timeString(data.gameStart) + " since game start\n";
+			message = message + GameData.timeString(data.getPlayerJoin(player)) + " since you joined\n";
 			player.sendMessage(message);
 		});
 

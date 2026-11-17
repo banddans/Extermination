@@ -2,20 +2,13 @@ package extermination;
 
 import arc.func.*;
 import arc.math.*;
-import arc.math.geom.*;
 import arc.struct.*;
-import arc.util.*;
-import arc.util.noise.*;
 import mindustry.content.*;
 import mindustry.maps.*;
 import mindustry.maps.filters.*;
 import mindustry.maps.filters.GenerateFilter.*;
 import mindustry.world.*;
-import mindustry.game.*;
-
 import static mindustry.Vars.*;
-
-import extermination.GameData.*;
 
 public class ErekirGenerator implements Cons<Tiles>{
 
@@ -145,7 +138,6 @@ public class ErekirGenerator implements Cons<Tiles>{
                                 Tile tile = tiles.get(x, y);
                                 
                                 Block floor = tile.floor();
-                                Block wall = tile.block();
                                 Block ore = tile.overlay();
                                 
                                 if(tile.blockID() != Blocks.duneWall.id) { continue; }
@@ -164,7 +156,6 @@ public class ErekirGenerator implements Cons<Tiles>{
                                 Tile tile = tiles.get(x, y);
 
                                 Block floor = tile.floor();
-                                Block wall = tile.block();
                                 Block ore = tile.overlay();
 
                                 if(tile.blockID() != Blocks.duneWall.id) { continue; }
@@ -185,7 +176,6 @@ public class ErekirGenerator implements Cons<Tiles>{
                                 Tile tile = tiles.get(x, y);
 
                                 Block floor = tile.floor();
-                                Block wall = tile.block();
                                 Block ore = tile.overlay();
 
                                 if(tile.blockID() != Blocks.duneWall.id) { continue; }
