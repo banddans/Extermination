@@ -215,7 +215,7 @@ public class EvictionMod extends Plugin{
 						}
 					} else {
 						Seq<Parcel> copy = data.parcels().copy();
-						copy.filter(h -> h.vacant());
+						copy.retainAll(h -> h.vacant());
 						if(copy.size > 0){
 							copy.shuffle();
 							copy.first().vacantToFallen(fallen);	

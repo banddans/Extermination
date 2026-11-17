@@ -250,13 +250,13 @@ public class GameData {
 		pt = pt.member;
 
 		Seq<Parcel> copy = parcels().copy();	
-		copy.filter(h -> h.vacant());
+		copy.retainAll(h -> h.vacant());
 		if(copy.isEmpty()) {
 			Log.info("actually, no space for it");
 			return false;
 		}
         int adjacent_min = copy.min(h -> h.adjacents.size < 2 ? h.adjacents.size + 10 : h.adjacents.size).adjacents.size;
-		copy.filter(h -> h.adjacents.size == adjacent_min);
+		copy.retainAll(h -> h.adjacents.size == adjacent_min);
         copy.shuffle();
 		Parcel spawn = copy.first();
 		spawn.removeBuildings();
@@ -306,13 +306,13 @@ public class GameData {
         pt = pt.member;
  
         Seq<Parcel> copy = parcels().copy();
-        copy.filter(h -> h.vacant());
+        copy.retainAll(h -> h.vacant());
         if(copy.isEmpty()) {
             Log.info("actually, no space for it");
             return false; }
 		
 		int adjacent_min = copy.min(h -> h.adjacents.size < 2 ? h.adjacents.size + 10 : h.adjacents.size).adjacents.size;
-        copy.filter(h -> h.adjacents.size == adjacent_min);
+        copy.retainAll(h -> h.adjacents.size == adjacent_min);
         copy.shuffle();
         Parcel spawn = copy.first();
         spawn.removeBuildings();
@@ -360,7 +360,7 @@ public class GameData {
 
 		if(ft.team.cores().size == 0) {
 			Seq<Parcel> copy = parcels.copy();
-            copy.filter(h -> h.vacant());
+            copy.retainAll(h -> h.vacant());
             if(copy.size > 0) {
                 copy.shuffle();
                 copy.first().vacantToFallen(ft.team); } }
