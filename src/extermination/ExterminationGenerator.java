@@ -10,12 +10,12 @@ import mindustry.maps.filters.GenerateFilter.*;
 import mindustry.world.*;
 import static mindustry.Vars.*;
 
-public class EvictionGenerator implements Cons<Tiles>{
+public class ExterminationGenerator implements Cons<Tiles>{
 
     private EvictConfig ec;
 	private GameData data;
 
-	public EvictionGenerator(GameData data){
+	public ExterminationGenerator(GameData data){
         this.ec = data.ec;
 		this.data = data;
 	}

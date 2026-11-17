@@ -29,7 +29,7 @@ import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EvictionMod extends Plugin{
+public class ExterminationMod extends Plugin{
 
     private EvictConfig ec;
 
@@ -246,7 +246,7 @@ public class EvictionMod extends Plugin{
 		logic.reset();
 		Log.info("Generating map.");
 		if(rules.env == Planets.serpulo.defaultEnv) {
-                	EvictionGenerator generator = new EvictionGenerator(data);
+                	ExterminationGenerator generator = new ExterminationGenerator(data);
                 	Log.info("after constructor");
                 	world.loadGenerator(ec.mapSizeTiles, ec.mapSizeTiles, generator);
 		}
