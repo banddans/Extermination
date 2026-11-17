@@ -604,10 +604,10 @@ public class GameData {
 	}
 
 	public void initParcels() {
-	    for(int x = 0; x < ec.hexLayers * 2 + 2; x++) {
-            for(int y = 0; y < ec.hexLayers * 2 + 2; y++) { 
-				for (int z = 0; z < ec.hexLayers * 2 + 2; z++) {
-                    Parcel parcel = new Parcel(x, y, z, ec);
+	    for(int x = 0; x < ec.hexLayers * 2 + 1; x++) {
+            for(int y = 0; y < ec.hexLayers * 2 + 1; y++) { 
+				for (int z = 0; z < ec.hexLayers * 2 + 1; z++) {
+                    Parcel parcel = new Parcel(x - ec.hexLayers, y - ec.hexLayers, z - ec.hexLayers, ec);
 				    parcel.status = Parcel.vacant;
                     parcels.add(parcel);
                     parcelIndex[x][y][z] = parcel;
@@ -616,9 +616,9 @@ public class GameData {
         }
 
         
-	    for(int x = 0; x < ec.hexLayers * 2 + 2; x++) {
-            for(int y = 0; y < ec.hexLayers * 2 + 2; y++) { 
-				for (int z = 0; z < ec.hexLayers * 2 + 2; z++) {
+	    for(int x = 0; x < ec.hexLayers * 2 + 1; x++) {
+            for(int y = 0; y < ec.hexLayers * 2 + 1; y++) { 
+				for (int z = 0; z < ec.hexLayers * 2 + 1; z++) {
 				    Parcel parcel = parcelIndex[x][y][z];
 				    if(parcel == null || parcel.inactive()) continue;
 					
