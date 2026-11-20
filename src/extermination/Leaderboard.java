@@ -37,12 +37,12 @@ public class Leaderboard {
 			while ((line = br.readLine()) != null) {
 				String prefix = "[]|| ";
 				String[] parts = line.split("~", 0);
-				uuidToRank.put(parts[0], new Integer(counter));
+				uuidToRank.put(parts[0], counter);
 				counter++;
 				uuidToName.put(parts[0], new String(parts[1]));
-				uuidToTier.put(parts[0], new Integer(parts[2]));
-				uuidToProgress.put(parts[0], new Integer(parts[3]));
-				uuidToPrestige.put(parts[0], new Integer(parts[4]));
+				uuidToTier.put(parts[0], Integer.parseInt(parts[2]));
+				uuidToProgress.put(parts[0], Integer.parseInt(parts[3]));
+				uuidToPrestige.put(parts[0], Integer.parseInt(parts[4]));
 
 				int tier = Integer.parseInt(parts[2]);
 				if (tier == 2) {
@@ -144,7 +144,7 @@ public class Leaderboard {
 		if (valid) {
 			Integer tier = uuidToTier.get(uuid);
 			if (tier == null)
-				tier = new Integer(1);
+				tier = 1;
 			return tier.intValue();
 		}
 		return 1;
