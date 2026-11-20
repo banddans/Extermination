@@ -774,7 +774,7 @@ public class ExterminationMod extends Plugin {
 		rules.blockDamageMultiplier = resetBlockDamage;
 
 		String[] cmd = new String[] { "/bin/bash", "-c",
-				"python3 " + EvictConfig.serpuloDataFile("updateDatabase.py") + " "
+				"python3 " + EvictConfig.dataFile("updateDatabase.py") + " "
 						+ EvictConfig.serpuloDataFile("database.csv") + " "
 						+ EvictConfig.serpuloDataFile("update.csv") + " " +
 						EvictConfig.serpuloDataFile("serverInput.data") };
