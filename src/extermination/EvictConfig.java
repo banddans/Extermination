@@ -54,12 +54,13 @@ public class EvictConfig {
   public Schematic serpPlayerStart = Schematics.readBase64(
       "bXNjaAF4nDWTXa6bMBBGBxuMwTZ3C91A9tL3qg++hEqRKCBIGmUn3Wtvm87n7yZRcpQwc2bGP/Imb1bqJf+cJH6d82Pavxxbvi8SztMx7pftelkXEXFzfp/mQ8y3772Ecd22aT/d8zyLzfsoflyXX9Nj3SUc65z305aXaZb2GPP1Ou3Svhc+pN/Wu2Yu63kSf1vmNZ/1cRzXfTott3GeboeEfNlPP/J4XTVB5Ld+pNK3vgxhiSDlFYmEP6sSy3B8GSZb/q6lgqGhyBEtQzxDOqInglSwRIYkYsCzT3FpyCoMYcUCtVj8VQoZFjIohGeeIR3RE4GIYuFMnHXgrPIa2dgigB1vVCsVLCtYVrCo0Cg6MYjsmRdhslRbqms6azjRc0M4QmVO4b32/vxAVNXqd6dR3iKrGGsaG6oatNEIqptWUSNY3y1sWI8ebTcYF4hEgsjR4GAAtGeHBrx5/tMqKI+VLAJHgaPAQYDlrbC9LfYEsERN9AwJRCRKnmeeZ55nnkeeU/Ra/0M70JEqrGzZKM/ZPWY35chUgCEsoYJW0WNBOs0z2JGS13HNep6dHhPXiBOLPpuyZpjU+Qq1K5wSHQvwhNaCMpTjbqFKrwthgCIO3IyAXcEvh2kDTYGmULpWfKYPr/tkcOiLJXJDIo92xOEDGqI4I52Rzggn0hNlAy9nuZe4owYXyfBPHExFTTREcSY6E52JfaaySoqAe5LQKTY/6Tr9ef4t/nI5B978gddz4PUfkAVEQnv5D45DTdM=");
 
-  private static String dataLocation = System.getProperty("user.home") + "/eviction";
+  private static String scriptsLocation = System.getProperty("user.dir") + "/../scripts";
+  private static String dataLocation = System.getProperty("user.dir") + "/data";
   private static String erekirDataLocation = dataLocation + "/erekir";
   private static String serpuloDataLocation = dataLocation + "/serpulo";
 
-  public static String dataFile(String file) {
-    return dataLocation + "/" + file;
+  public static String scriptFile(String file) {
+    return scriptsLocation + "/" + file;
   }
 
   public static String serpuloDataFile(String file) {

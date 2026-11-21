@@ -774,7 +774,7 @@ public class ExterminationMod extends Plugin {
 		rules.blockDamageMultiplier = resetBlockDamage;
 
 		String[] cmd = new String[] { "/bin/bash", "-c",
-				"python3 " + EvictConfig.dataFile("updateDatabase.py") + " "
+				"python3 " + EvictConfig.scriptFile("updateDatabase.py") + " "
 						+ EvictConfig.serpuloDataFile("database.csv") + " "
 						+ EvictConfig.serpuloDataFile("update.csv") + " " +
 						EvictConfig.serpuloDataFile("serverInput.data") };
@@ -783,7 +783,7 @@ public class ExterminationMod extends Plugin {
 		if (rules.env == Planets.erekir.defaultEnv) {
 			Log.info("load erekir!");
 			cmd = new String[] { "/bin/bash", "-c",
-					"python3 " + EvictConfig.dataFile("updateDatabase.py") + " "
+					"python3 " + EvictConfig.scriptFile("updateDatabase.py") + " "
 							+ EvictConfig.erekirDataFile("database.csv") + " "
 							+ EvictConfig.erekirDataFile("update.csv") + " " +
 							EvictConfig.erekirDataFile("serverInput.data") };

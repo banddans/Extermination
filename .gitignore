@@ -4,3 +4,4 @@ config/
 *.swp
 bin
 .DS_Store
+container/server
